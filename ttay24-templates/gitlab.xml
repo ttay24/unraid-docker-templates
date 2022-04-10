@@ -40,6 +40,7 @@
         <ContainerPort>22</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
+    </Publish>
   </Networking>
   <Data>
     <Volume>
