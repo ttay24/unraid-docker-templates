@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
+  <TemplateURL>https://raw.githubusercontent.com/ttay24/unraid-docker-templates/main/ttay24-templates/gitlab.xml</TemplateURL>
   <Date>2022-04-09</Date>
   <Beta>False</Beta>
   <Category>CI/CD</Category>
