@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Date>2022-04-09</Date>
+  <Beta>False</Beta>
+  <Category>CI/CD</Category>
+  <Name>GitLab</Name>
+  <Project>https://docs.gitlab.com/ee/install/docker.html</Project>
+  <Changes>
+    TODO CHANGES
+  </Changes>
+  <Overview>
+    TODO OVERVIEW
+  </Overview>
+  <Description>
+    TODO DESCRIPTION
+  </Description>
+  <Registry>https://hub.docker.com/r/gitlab/gitlab-ee/</Registry>
+  <GitHub>TODO</GitHub>
+  <Repository>gitlab/gitlab-ee</Repository>
+  <Support>https://github.com/ttay24/unraid-docker-templates</Support>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment/>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>443</HostPort>
+        <ContainerPort>443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>22</HostPort>
+        <ContainerPort>22</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gitlab/config</HostDir>
+      <ContainerDir>/etc/gitlab</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gitlab/logs</HostDir>
+      <ContainerDir>/var/log/gitlab</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gitlab/data</HostDir>
+      <ContainerDir>/var/opt/gitlab</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <Icon>https://d2631fvi2jdnb6.cloudfront.net/docker/limetech/sync.png</Icon>
+
+  <Network Default="bridge">bridge</Network>
+
+  <Config Type="Port" Name="Web Interface Port (https)" Target="443" Default="443" Mode="tcp" Display="always" Required="true"
+       Description="Port for HTTPS">443</Config>
+
+  <Config Type="Port" Name="Web Interface Port (http)" Target="80" Default="80" Mode="tcp" Display="always" Required="true"
+       Description="Port for http">80</Config>
+
+  <Config Type="Port" Name="SSH Port" Target="22" Default="22" Mode="udp" Display="always" Required="true"
+       Description="This is Sync's UDP port for data transfers.">22</Config>
+
+  <!-- Extra parameters -->
+  <extra_params>
+    <extra_param>
+      <name>shm-size</name>
+      <value>256m</value>
+      <description>Set the size of `/dev/shm` to `VALUE`.  The format of `VALUE` is `&lt;number&gt;&lt;unit&gt;`, where `number` must be greater than `0` and `unit` can be `b` (bytes), `k` (kilobytes), `m` (megabytes), or `g` (gigabytes).  **NOTE**: To avoid crashes, it is recommended to set this value to `2g`.</description>
+      <include_in_quick_start>true</include_in_quick_start>
+    </extra_param>
+  </extra_params>
+</Container>
